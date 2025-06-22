@@ -1,0 +1,41 @@
+#:import ProductCard components.product.product_card
+
+<ProductCard>:
+    id: root.card_id
+    size_hint_x:  1
+    size_hint_y: .01
+    pos_hint: { "center_x": .5 }
+    GridLayout:
+        cols:1
+        rows:3
+        padding:"20dp"
+        BoxLayout:
+            orientation:'vertical'
+            FitImage:
+                source:root.photo
+                height:root.height
+        GridLayout:
+            rows:2
+            cols:2 
+            MDLabel:
+                id:name
+                specific_text_color:1,1,0,1
+                text:root.name
+                halign:"left"  
+                bold:False
+            MDRoundFlatIconButton:
+                icon: "cart-arrow-down"
+                text:"Lo quiero!"
+                halign:"right"
+                on_release: root.openAddToKart()
+            MDLabel:
+                specific_text_color:1,1,0,1
+                halign:"left"
+                bold:True
+                text:"Precio U."
+            MDLabel:
+                id:price_purchase
+                specific_text_color:1,1,0,1
+                type:"float"
+                text:root.price_u
+                halign:"right"

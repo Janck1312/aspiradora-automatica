@@ -1,0 +1,10 @@
+__pycache__
+/*/__pycache__
+/*/__pycache__/*
+buildozer.spec
+.buildozer
+bin/
+.pylintrc
+cache
+cache/*
+#NO MODIFICAR

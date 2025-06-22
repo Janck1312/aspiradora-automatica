@@ -1,0 +1,45 @@
+#:import AddProductToKart components.product.addProductToKart
+
+<AddProductToKart>:
+    GridLayout:
+        cols:2
+        rows:4
+        spacing:"20dp"
+        MDTextField:
+            id:code
+            mode: "fill"
+            hint_text: "Código"
+            disabled:True
+        MDTextField:
+            id:name_product
+            mode: "fill"
+            hint_text: "Nombre"
+            disabled:True
+        MDTextField:
+            id:quantity
+            mode: "fill"
+            hint_text: "Cantidad"
+            helper_text:"Presione enter para calcular"
+            helper_text_mode:"persistent"
+            on_text_validate: root.calcTotalIVAAndTotal()
+        MDTextField:
+            id:price_u
+            mode: "fill"
+            hint_text: "Precio U."
+            disabled:True
+        MDTextField:
+            id:IVA
+            mode: "fill"
+            hint_text: "IVA"
+            text:"16"
+            disabled:True
+        MDTextField:
+            id:total_iva
+            mode: "fill"
+            hint_text: "Monto IVA"
+            disabled:True
+        MDTextField:
+            id:total
+            mode: "fill"
+            hint_text: "Total"
+            disabled:True

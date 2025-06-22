@@ -1,0 +1,43 @@
+#:include force pages/PagesModule.kv
+#:include force components/index.kv
+#:import MainApp main
+
+MainNavigationLayout:
+    #barra titular de la app
+    MDTopAppBar:
+        id: toolbar
+        title: root.appTitle
+        elevation: .8
+        pos_hint: { "top": 1 }
+        md_bg_color: "#3498db"
+        specific_text_color: "#ffffff"
+   
+    MDScreenManager:
+        id: screen_manager
+        #all views should be registered here
+        Dashboard:
+        
+    MDNavigationDrawer:
+        id: nav_drawer
+        screen_manager: screen_manager
+        radius: (0, 14, 14, 0)
+        type: "standard"
+        close_on_click:True
+
+        MDScrollView:
+            id: content_nav
+
+            #MDNavigationDrawerMenu:
+            #    id: menu_items_container
+            #    text_halign: "center"
+
+                #MDNavigationDrawerHeader:
+                #    title: "Menú"
+                #    title_color: "#4a4939"
+                #    text: ""
+                #    id:title
+                #    spacing: "1dp"
+                #    padding: "3dp", 0, 0, "18dp"
+
+                #MDNavigationDrawerDivider: 
+                #    id:title_divider       
