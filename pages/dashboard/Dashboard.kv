@@ -1,14 +1,84 @@
 #:import Dashboard pages.dashboard.Dashboard
+#:kivy 2.0.0
+#:import MDCard kivymd.uix.card.MDCard
+#:import MDRoundFlatButton kivymd.uix.button.MDRoundFlatButton
+#:import MDRectangleFlatButton kivymd.uix.button.MDRectangleFlatButton
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import colors kivymd.color_definitions.colors
+#:import CircularBattery components.common.CircularBattery.CircularBattery
+#:import BatteryModern components.common.BatteryModern.BatteryModern
 
 <Dashboard>:
+    on_enter:root.load_machine_state()
     name: root.appRoutes.dashboard
+    FloatLayout:
+        Image:
+            id: bg_image
+            source: 'assets/background.jpg'  # Ruta de tu imagen
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            opacity: 0.2  # Ajusta la opacidad (0.0 a 1.0)
 
-    MDSliverAppbar:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
 
-        MDTopAppBar:
+            # Banner superior (nombre del dispositivo)
+            MDLabel:
+                text: ""
+                halign: "center"
+                font_style: "H5"
+                size_hint_y: None
+                height: 40
 
-        MDSliverAppbarHeader:
+            BatteryModern:
+                percent: root.batteryPercent
+                pos_hint: { 'center_x': .5 }
 
-            text: "A donde quieres ir?"
+            # Tiempo restante estimado
+            MDLabel:
+                text: root.rest_tiempo
+                halign: "center"
+                font_style: "Subtitle1"
 
-        MDSliverAppbarContent:
+            # Tarjetas de estadísticas (tiempo de uso y distancia)
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint_y: None
+                height: 100
+
+                MDCard:
+                    size_hint: 0.5, 1
+                    padding: 10
+                    MDLabel:
+                        text: "Tiempo de uso"
+                        halign: "center"
+                        font_style: "Body2"
+                    MDLabel:
+                        text: root.tiempo
+                        halign: "center"
+                        font_style: "H6"
+
+                MDCard:
+                    size_hint: 0.5, 1
+                    padding: 10
+                    MDLabel:
+                        text: "Distancia"
+                        halign: "center"
+                        font_style: "Body2"
+                    MDLabel:
+                        text: root.distance_traveled_display
+                        halign: "center"
+                        font_style: "H6"
+
+            # Botón de encendido/apagado (toggle)
+            MDRoundFlatButton:
+                id: power_button
+                text: root.buttonLabel
+                pos_hint: {"center_x": 0.5}
+                size_hint: (0.6, None)
+                height: 50
+                on_release: root.toggle_power()

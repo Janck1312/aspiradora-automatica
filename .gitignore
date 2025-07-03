@@ -7,4 +7,6 @@ bin/
 .pylintrc
 cache
 cache/*
+.idea
+kivy_venv
 #NO MODIFICAR

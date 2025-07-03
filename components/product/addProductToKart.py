@@ -1,7 +1,6 @@
 from helpers.showMessages import ShowMessages
 from kivy.uix.boxlayout import BoxLayout
 from kivy.metrics import dp
-from pages.product.productService import ProductService
 
 class AddProductToKart(BoxLayout, ShowMessages):
     selectedPrdId = ""

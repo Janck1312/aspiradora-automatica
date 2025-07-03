@@ -1,5 +1,5 @@
 #all http methods used should be registered here
-class HttpMethodsEnum():
+class HttpMethodsEnum:
     """This class functions like a enum here will be registered all app HTTP METHODs used..."""
     post = 'POST'
     get = 'GET'

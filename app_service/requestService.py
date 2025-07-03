@@ -6,7 +6,7 @@ from helpers.showMessages import ShowMessages
 from kivy.network.urlrequest import UrlRequest
 
 class RequestService(CacheService, ShowMessages):
-    """This class have request general methods"""
+    """This class has request general methods"""
     http = UrlRequest
     bearerToken:str = None
     
@@ -16,7 +16,7 @@ class RequestService(CacheService, ShowMessages):
             "Authorization": self.bearerToken, "Content-type": "application/json"
         }
 
-        if(body is None):
+        if body is None:
             self.http(
                 url=url,
                 method=method,
@@ -25,7 +25,7 @@ class RequestService(CacheService, ShowMessages):
                 req_headers=headers,
                 on_failure=on_failure
             )
-        elif( body is not None ):
+        elif body is not None:
             body = json.dumps(body)
             self.http(
                 url=url,

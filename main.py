@@ -1,16 +1,13 @@
 from kivymd.app import MDApp
 from app_enums.user_permissions_enum import AppPermissionsEnum
 from kivymd.uix.navigationdrawer import MDNavigationLayout
-from kivymd.uix.list.list import MDList
-from kivymd.uix.card import MDCard
-from kivy.properties import ObservableList
 from app_enums.routes_enum import RoutesEnum
 from components.common.menu_items.MenuItemsComponent import MenuItemsComponent
 
 class MainNavigationLayout(MDNavigationLayout):
     """this class content of all app"""
     appRoutes = RoutesEnum() #set app routes
-    appTitle = "Aspiradora Automatica"
+    appTitle = "Aspiradora Smart"
     appPermissions = AppPermissionsEnum() #set app permissions
     _menuItemsComponent = MenuItemsComponent()
     isDefinedMenu: bool = False
